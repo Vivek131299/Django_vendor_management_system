@@ -27,7 +27,7 @@ def register(request):
 
         username = request_body['username']
         if User.objects.filter(username=username).exists():
-            return HttpResponse("Username already exists")
+            return HttpResponse("Username already exists", status=409)
         email = request_body['email']
 
         # validate email
@@ -63,11 +63,15 @@ class VendorModelViewSet(viewsets.ModelViewSet):
         request.data['vendor_code'] = vendor_code
         return super().create(request, *args, **kwargs)
 
+    # for url: GET /vendors/{id}/performance
     @action(detail=True, methods=['get'], url_path='performance')
     def vendor_performance(self, request, pk=None):
-        performance = HistoricalPerformance.objects.filter(vendor_id=pk).order_by('-date').first()
-        serializer = HistoricalPerformanceSerializer(performance)
-        return Response(serializer.data)
+        if Vendor.objects.filter(pk=pk).exists():
+            performance = HistoricalPerformance.objects.filter(vendor_id=pk).order_by('-date').first()
+            serializer = HistoricalPerformanceSerializer(performance)
+            return Response(serializer.data)
+        else:
+            return Response(f"No vendor with id {pk} exists.", status=404)
 
 
 class PurchaseOrderModelViewSet(viewsets.ModelViewSet):
@@ -78,6 +82,14 @@ class PurchaseOrderModelViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated]
 
     def create(self, request, *args, **kwargs):
+        if 'items' not in request.data:
+            return Response("Field 'items' is required", status=400)
+        if request.data['items'] is None or len(request.data['items']) == 0 or request.data['items'] == "":
+            return Response("Field 'items' should contain at least one item", status=400)
+        if 'vendor' not in request.data:
+            return Response("Field 'vendor' is required", status=400)
+        if request.data['vendor'] is None or request.data['vendor'] == "":
+            return Response("Field 'vendor' should contain an integer", status=400)
         po_number = ''.join(random.choices(string.digits, k=10))
         order_date = datetime.date.today()
         request.data['order_date'] = order_date
@@ -89,11 +101,14 @@ class PurchaseOrderModelViewSet(viewsets.ModelViewSet):
         request.data['issue_date'] = datetime.datetime.now()
         return super().create(request, *args, **kwargs)
 
+    # for url POST /purchase_orders/{id}/acknowledge/
     @action(detail=True, methods=['post'], url_path='acknowledge')
     def acknowledge_purchase_order(self, request, pk=None):
         purchase_order = self.get_object()
+        if purchase_order.acknowledgment_date is not None:
+            return Response(f"Purchase order has already been acknowledged on {datetime.datetime.strftime(purchase_order.acknowledgment_date, '%Y-%m-%d %H:%M:%S')}.")
         purchase_order.acknowledgment_date = datetime.datetime.now()
         purchase_order.save()
         order_acknowledged_signal.send(sender=PurchaseOrder, pk=pk)
-        return Response({'message: Purchase order acknowledged successfully.'})
+        return Response("Purchase order acknowledged successfully.")
 

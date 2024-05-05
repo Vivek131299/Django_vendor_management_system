@@ -24,10 +24,10 @@ class Vendor(models.Model):
 
 class PurchaseOrder(models.Model):
     po_number = models.CharField(max_length=10, blank=True)
-    vendor = models.ForeignKey(Vendor, on_delete=models.CASCADE)
+    vendor = models.ForeignKey(Vendor, on_delete=models.CASCADE, blank=True)
     order_date = models.DateField(blank=True)
     delivery_date = models.DateField(blank=True)
-    items = models.JSONField()
+    items = models.JSONField(blank=True)
     quantity = models.IntegerField(blank=True)
     status = models.CharField(max_length=20, default=POStatus.PENDING.value, blank=True)
     quality_rating = models.FloatField(null=True, blank=True)
