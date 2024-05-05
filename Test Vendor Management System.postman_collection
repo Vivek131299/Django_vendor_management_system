@@ -1,0 +1,440 @@
+{
+	"info": {
+		"_postman_id": "b0e42e8f-0a66-4e42-8ff1-81b2921f7214",
+		"name": "Vendor Management System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29776751"
+	},
+	"item": [
+		{
+			"name": "Register new user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"vivek\",\r\n    \"email\": \"vivek131299@gmail.com\",\r\n    \"password\": \"password123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/register/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"register",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all users",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE0NDU2NTY2LCJpYXQiOjE3MTQ0NTYyNjYsImp0aSI6ImJlNDJkNmNiOGJjNzQ2NjdhNjhkNTY3MDI0OTMzOGViIiwidXNlcl9pZCI6MX0.rGowSj-bcg9e3Vaub4lp5zxgRMX5x0FwkTUULGC2x8Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/hello/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"hello",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get access token",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "username",
+						"value": "vivek",
+						"type": "text"
+					},
+					{
+						"key": "password",
+						"value": "password",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"vivek\",\r\n    \"password\": \"password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/gettoken/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"gettoken",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create new vendor",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE0NDU3OTc0LCJpYXQiOjE3MTQ0NTcwNzQsImp0aSI6ImMyMGI3NzgzMGUxYzQzNDNhZjBmMmNlYWFjZDY0NDM2IiwidXNlcl9pZCI6MX0.22hfiBNM049Wb-kfYBSzVPkkD4AQvv1zpg2iINx7PzQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"ABC enterprises\",\r\n    \"contact_details\": \"1234567890\",\r\n    \"address\": \"Pune\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/vendors/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"vendors",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all vendors",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE0NDU3OTc0LCJpYXQiOjE3MTQ0NTcwNzQsImp0aSI6ImMyMGI3NzgzMGUxYzQzNDNhZjBmMmNlYWFjZDY0NDM2IiwidXNlcl9pZCI6MX0.22hfiBNM049Wb-kfYBSzVPkkD4AQvv1zpg2iINx7PzQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/vendors/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"vendors",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get vendor by id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE0NzU1OTIyLCJpYXQiOjE3MTQ3NTQxMjIsImp0aSI6Ijg2MWY2NzlmMjZhMzRmY2E5NzUxYmVkMzAzMDcxODZjIiwidXNlcl9pZCI6MX0.efbYXY_CujgwAP0V57uJgiDJl82suJ21rjeWn2AwpME",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"vendor\": 1,\r\n    \"items\": [\r\n                {\r\n                    \"name\": \"Dell laptop\",\r\n                    \"price\": 60000\r\n                },\r\n                {\r\n                    \"name\": \"Cricket set\",\r\n                    \"price\": 5000\r\n                }\r\n            ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/vendors/2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"vendors",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create purchase order",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE0NjM5NTE5LCJpYXQiOjE3MTQ2Mzg2MTksImp0aSI6IjRmMDA5NzEwNTgwYjQ4Y2JhYWZiMTEyZTNiOGIzYTBhIiwidXNlcl9pZCI6MX0.wvcfPJs3ayZw9vuRi341mUT5bw57rxoB_c3iQjn6u7Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"vendor\": 1,\r\n    \"items\": [\r\n                {\r\n                    \"name\": \"Dell laptop\",\r\n                    \"price\": 60000\r\n                },\r\n                {\r\n                    \"name\": \"Cricket set\",\r\n                    \"price\": 5000\r\n                }\r\n            ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/purchase_orders/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"purchase_orders",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get purchase order by id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE0NDYxMDI2LCJpYXQiOjE3MTQ0NjAxMjYsImp0aSI6ImFiNWEzMTc5Mjc1YzQxZDg4MmIzOGU5ZjBmMmU4NWI3IiwidXNlcl9pZCI6MX0.9IP0TEgAwHsR3ZRmnELq2ndOJdhiAn8l9BR8_wYgzbI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/purchase_orders/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"purchase_orders",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Acknowledge purchase order",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE0NDYzNTE4LCJpYXQiOjE3MTQ0NjI2MTgsImp0aSI6ImU5M2MwYWEzM2ZjMzRmMDlhNjljZWE0NzZhNGVkODEzIiwidXNlcl9pZCI6MX0.aNLgPRWeelHdixAWF-YdUIXOPWPmzGdYNiXWC4kX4Ok",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/purchase_orders/1/acknowledge/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"purchase_orders",
+						"1",
+						"acknowledge",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Complete purchase order",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE0NjQyNDIzLCJpYXQiOjE3MTQ2NDE1MjMsImp0aSI6IjQwNGNjNDY2ZDM0NDRmYzQ4N2E4Mjk5Mjk0NWRiN2NjIiwidXNlcl9pZCI6MX0.L1C0BvzSkOJv78jPkKqu-rbVzkPD9t4OMInaHqmu8Es",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"status\": \"Completed\",\r\n    \"po_number\": \"8174215209\",\r\n    \"delivery_date\": \"2024-05-02\",\r\n    \"vendor\": 1,\r\n    \"quantity\": 2,\r\n    \"items\": [\r\n                {\r\n                    \"name\": \"Dell laptop\",\r\n                    \"price\": 60000\r\n                },\r\n                {\r\n                    \"name\": \"Cricket set\",\r\n                    \"price\": 5000\r\n                }\r\n            ]\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/purchase_orders/15/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"purchase_orders",
+						"15",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get vendor performance",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE0NzU0MTA3LCJpYXQiOjE3MTQ3NTIzMDcsImp0aSI6IjM5OWEyMjNmYjc1YTRjMGNiY2M1NGY1NzBkOWZiNDcyIiwidXNlcl9pZCI6MX0._jcWrpxhyhdeurdi-rZySApHBHjC1qw3g9gpIc17Thw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/vendors/2/performance",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"vendors",
+						"2",
+						"performance"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
