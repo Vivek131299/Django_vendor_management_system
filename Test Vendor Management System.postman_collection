@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"username\": \"vivek\",\r\n    \"email\": \"vivek131299@gmail.com\",\r\n    \"password\": \"password123\"\r\n}",
+					"raw": "{\r\n    \"username\": \"vivek\",\r\n    \"email\": \"vivek@gmail.com\",\r\n    \"password\": \"password\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -39,55 +39,10 @@
 			"response": []
 		},
 		{
-			"name": "Get all users",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE0NDU2NTY2LCJpYXQiOjE3MTQ0NTYyNjYsImp0aSI6ImJlNDJkNmNiOGJjNzQ2NjdhNjhkNTY3MDI0OTMzOGViIiwidXNlcl9pZCI6MX0.rGowSj-bcg9e3Vaub4lp5zxgRMX5x0FwkTUULGC2x8Q",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://127.0.0.1:8000/hello/",
-					"protocol": "http",
-					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
-					],
-					"port": "8000",
-					"path": [
-						"hello",
-						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "Get access token",
 			"request": {
 				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "password",
-							"value": "",
-							"type": "string"
-						},
-						{
-							"key": "username",
-							"value": "",
-							"type": "string"
-						}
-					]
+					"type": "noauth"
 				},
 				"method": "POST",
 				"header": [
@@ -130,6 +85,39 @@
 			"response": []
 		},
 		{
+			"name": "Get all users",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE0OTE4ODc2LCJpYXQiOjE3MTQ5MTcwNzYsImp0aSI6ImIyMGNjMjg0OGRiNDRjMWU5NGI1ODQwODM0NzRhZTY1IiwidXNlcl9pZCI6MX0.UKTqkwGLMTfOOhcgzGhNd7c7TjObUAf1BvHqsAJ7yJY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/users/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Create new vendor",
 			"request": {
 				"auth": {
@@ -137,7 +125,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE0NDU3OTc0LCJpYXQiOjE3MTQ0NTcwNzQsImp0aSI6ImMyMGI3NzgzMGUxYzQzNDNhZjBmMmNlYWFjZDY0NDM2IiwidXNlcl9pZCI6MX0.22hfiBNM049Wb-kfYBSzVPkkD4AQvv1zpg2iINx7PzQ",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE0ODk5Njc2LCJpYXQiOjE3MTQ4OTc4NzYsImp0aSI6IjI1MDg2NzgwN2ZmODRhODY4NDljZmIxMTRmMzM2ZTI4IiwidXNlcl9pZCI6MX0.-1WZDvWyzywEhWmxeQrzwuqFV4ZkI74lNUUwzgvrxO4",
 							"type": "string"
 						}
 					]
@@ -179,7 +167,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE0NDU3OTc0LCJpYXQiOjE3MTQ0NTcwNzQsImp0aSI6ImMyMGI3NzgzMGUxYzQzNDNhZjBmMmNlYWFjZDY0NDM2IiwidXNlcl9pZCI6MX0.22hfiBNM049Wb-kfYBSzVPkkD4AQvv1zpg2iINx7PzQ",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE0ODk5Njc2LCJpYXQiOjE3MTQ4OTc4NzYsImp0aSI6IjI1MDg2NzgwN2ZmODRhODY4NDljZmIxMTRmMzM2ZTI4IiwidXNlcl9pZCI6MX0.-1WZDvWyzywEhWmxeQrzwuqFV4ZkI74lNUUwzgvrxO4",
 							"type": "string"
 						}
 					]
@@ -215,7 +203,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE0NzU1OTIyLCJpYXQiOjE3MTQ3NTQxMjIsImp0aSI6Ijg2MWY2NzlmMjZhMzRmY2E5NzUxYmVkMzAzMDcxODZjIiwidXNlcl9pZCI6MX0.efbYXY_CujgwAP0V57uJgiDJl82suJ21rjeWn2AwpME",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE0ODk5Njc2LCJpYXQiOjE3MTQ4OTc4NzYsImp0aSI6IjI1MDg2NzgwN2ZmODRhODY4NDljZmIxMTRmMzM2ZTI4IiwidXNlcl9pZCI6MX0.-1WZDvWyzywEhWmxeQrzwuqFV4ZkI74lNUUwzgvrxO4",
 							"type": "string"
 						}
 					]
@@ -224,7 +212,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"vendor\": 1,\r\n    \"items\": [\r\n                {\r\n                    \"name\": \"Dell laptop\",\r\n                    \"price\": 60000\r\n                },\r\n                {\r\n                    \"name\": \"Cricket set\",\r\n                    \"price\": 5000\r\n                }\r\n            ]\r\n}",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -232,7 +220,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:8000/vendors/2",
+					"raw": "http://127.0.0.1:8000/vendors/1",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -243,7 +231,7 @@
 					"port": "8000",
 					"path": [
 						"vendors",
-						"2"
+						"1"
 					]
 				}
 			},
@@ -257,7 +245,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE0NjM5NTE5LCJpYXQiOjE3MTQ2Mzg2MTksImp0aSI6IjRmMDA5NzEwNTgwYjQ4Y2JhYWZiMTEyZTNiOGIzYTBhIiwidXNlcl9pZCI6MX0.wvcfPJs3ayZw9vuRi341mUT5bw57rxoB_c3iQjn6u7Q",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE0OTAyNjA5LCJpYXQiOjE3MTQ5MDA4MDksImp0aSI6ImZmYzg0ZDExZWM0ZDQ1MjI4MWU4YTczNWRjYTVkZGFkIiwidXNlcl9pZCI6MX0.o7rcuP7Fl8aUDa3YPV-p07FS9sGKOwiYXbD7BE_FJ0U",
 							"type": "string"
 						}
 					]
@@ -266,7 +254,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"vendor\": 1,\r\n    \"items\": [\r\n                {\r\n                    \"name\": \"Dell laptop\",\r\n                    \"price\": 60000\r\n                },\r\n                {\r\n                    \"name\": \"Cricket set\",\r\n                    \"price\": 5000\r\n                }\r\n            ]\r\n}",
+					"raw": "{\r\n    \"vendor\": 1,\r\n    \"items\": [\r\n                {\r\n                    \"name\": \"Motorola Edge 50\",\r\n                    \"price\": 30000\r\n                },\r\n                {\r\n                    \"name\": \"Airpods pro\",\r\n                    \"price\": 2\r\n                }\r\n            ]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -299,7 +287,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE0NDYxMDI2LCJpYXQiOjE3MTQ0NjAxMjYsImp0aSI6ImFiNWEzMTc5Mjc1YzQxZDg4MmIzOGU5ZjBmMmU4NWI3IiwidXNlcl9pZCI6MX0.9IP0TEgAwHsR3ZRmnELq2ndOJdhiAn8l9BR8_wYgzbI",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE0ODk5Njc2LCJpYXQiOjE3MTQ4OTc4NzYsImp0aSI6IjI1MDg2NzgwN2ZmODRhODY4NDljZmIxMTRmMzM2ZTI4IiwidXNlcl9pZCI6MX0.-1WZDvWyzywEhWmxeQrzwuqFV4ZkI74lNUUwzgvrxO4",
 							"type": "string"
 						}
 					]
@@ -307,7 +295,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:8000/purchase_orders/1",
+					"raw": "http://127.0.0.1:8000/purchase_orders/27",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -318,7 +306,7 @@
 					"port": "8000",
 					"path": [
 						"purchase_orders",
-						"1"
+						"27"
 					]
 				}
 			},
@@ -332,7 +320,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE0NDYzNTE4LCJpYXQiOjE3MTQ0NjI2MTgsImp0aSI6ImU5M2MwYWEzM2ZjMzRmMDlhNjljZWE0NzZhNGVkODEzIiwidXNlcl9pZCI6MX0.aNLgPRWeelHdixAWF-YdUIXOPWPmzGdYNiXWC4kX4Ok",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE0OTAwNjIxLCJpYXQiOjE3MTQ4OTg4MjEsImp0aSI6IjZjODc4NThmNTc1YTRjYmY5MDFhODEwM2UwZmJjOWM5IiwidXNlcl9pZCI6MX0.lEcjl8aaIr-RH9Jwx9qh-kVq1zNVheqlNfnXIdEZNAs",
 							"type": "string"
 						}
 					]
@@ -340,7 +328,7 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:8000/purchase_orders/1/acknowledge/",
+					"raw": "http://127.0.0.1:8000/purchase_orders/27/acknowledge/",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -351,7 +339,7 @@
 					"port": "8000",
 					"path": [
 						"purchase_orders",
-						"1",
+						"27",
 						"acknowledge",
 						""
 					]
@@ -367,7 +355,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE0NjQyNDIzLCJpYXQiOjE3MTQ2NDE1MjMsImp0aSI6IjQwNGNjNDY2ZDM0NDRmYzQ4N2E4Mjk5Mjk0NWRiN2NjIiwidXNlcl9pZCI6MX0.L1C0BvzSkOJv78jPkKqu-rbVzkPD9t4OMInaHqmu8Es",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE0OTEyODg0LCJpYXQiOjE3MTQ5MTEwODQsImp0aSI6IjJkNmUxZjI4MTJjNDQ2YTA5OGE5OGNjMDNiYWMwZjk1IiwidXNlcl9pZCI6MX0.ESXsnUt7CL4kgxFdJP5z-Pd14g1Gpg3Ty0LT24_7KCE",
 							"type": "string"
 						}
 					]
@@ -376,7 +364,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"status\": \"Completed\",\r\n    \"po_number\": \"8174215209\",\r\n    \"delivery_date\": \"2024-05-02\",\r\n    \"vendor\": 1,\r\n    \"quantity\": 2,\r\n    \"items\": [\r\n                {\r\n                    \"name\": \"Dell laptop\",\r\n                    \"price\": 60000\r\n                },\r\n                {\r\n                    \"name\": \"Cricket set\",\r\n                    \"price\": 5000\r\n                }\r\n            ]\r\n    \r\n}",
+					"raw": "{\r\n    \"status\": \"Completed\",\r\n    \"quality_rating\": 90\r\n    \r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -384,7 +372,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:8000/purchase_orders/15/",
+					"raw": "http://127.0.0.1:8000/purchase_orders/30/",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -395,7 +383,7 @@
 					"port": "8000",
 					"path": [
 						"purchase_orders",
-						"15",
+						"30",
 						""
 					]
 				}
@@ -431,6 +419,74 @@
 						"vendors",
 						"2",
 						"performance"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a purchase order",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE0OTE3MDYyLCJpYXQiOjE3MTQ5MTUyNjIsImp0aSI6ImY4MDA1ODE5YWUzYjRlYmFiNTk3ZGRlYmNjZGViNTQ2IiwidXNlcl9pZCI6MX0.Pkiz6I21K838wikjmUFRWwqWpVG8yaGal6hfKFMXers",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/purchase_orders/33/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"purchase_orders",
+						"33",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a vendor",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE0OTE3MDYyLCJpYXQiOjE3MTQ5MTUyNjIsImp0aSI6ImY4MDA1ODE5YWUzYjRlYmFiNTk3ZGRlYmNjZGViNTQ2IiwidXNlcl9pZCI6MX0.Pkiz6I21K838wikjmUFRWwqWpVG8yaGal6hfKFMXers",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/vendors/4/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"vendors",
+						"4",
+						""
 					]
 				}
 			},

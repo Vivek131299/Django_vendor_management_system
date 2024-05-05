@@ -112,3 +112,12 @@ class PurchaseOrderModelViewSet(viewsets.ModelViewSet):
         order_acknowledged_signal.send(sender=PurchaseOrder, pk=pk)
         return Response("Purchase order acknowledged successfully.")
 
+    def update(self, request, *args, **kwargs):
+        if request.data['status'].lower() not in ['pending', 'completed', 'canceled']:
+            return Response("Invalid status. Should be one of the following: 'Pending', 'Completed', 'Canceled'", status=400)
+        if request.data['quality_rating'] < 0 or request.data['quality_rating'] > 100:
+            return Response("Invalid quality rating. Rating should be between 0 and 100", status=400)
+        if PurchaseOrder.objects.get(pk=kwargs['pk']).status == POStatus.COMPLETED.value:
+            return Response("Purchase order has already been completed.")
+        request.data['status'] = request.data['status'].capitalize()
+        return super().update(request, *args, **kwargs)

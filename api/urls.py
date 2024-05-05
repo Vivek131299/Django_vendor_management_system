@@ -6,7 +6,7 @@ from rest_framework.routers import DefaultRouter
 router = DefaultRouter()
 
 # Register StudentModelViewSet with Router
-router.register('user', views.Users, basename='user')
+router.register('users', views.Users, basename='users')
 # router.register('vendors/{vendor_id}/performance', views.HistoricalPerformanceModelViewSet, basename='performance')
 router.register('vendors', views.VendorModelViewSet, basename='vendors')
 router.register('purchase_orders', views.PurchaseOrderModelViewSet, basename='purchase_orders')
