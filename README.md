@@ -72,6 +72,7 @@ For this, we will need to provide the access token as a 'Bearer Token' in the 'A
 This will return all the existing users in the response.
 
 
+### Vendors ###
 #### 4) Create new Vendor - POST http://127.0.0.1:8000/vendors/
 
 This POST request takes the access token and a raw JSON body to create a new vendor.
@@ -98,6 +99,7 @@ This GET request takes the access token and an id of a vendor as a path variable
 the vendor matching the given id.
 
 
+### Purchase Orders ###
 #### 7) Create purchase order - POST http://127.0.0.1:8000/purchase_orders/
 
 This POST request takes the access token and a raw JSON body having purchase order details.
@@ -137,7 +139,7 @@ This will return the details of the created purchase order which includes below 
 8. acknowledgment_date: Initially set to null. It is updated when we acknowledge the order(covered later in this documentation).
 
 
-#### 8) Get purchase order bby id - GET http://127.0.0.1:8000/purchase_orders/10
+#### 8) Get purchase order by id - GET http://127.0.0.1:8000/purchase_orders/10
 
 This GET request takes the access token and an id of a purchase order as a path variable and returns 
 the purchase order matching the given id.
@@ -171,6 +173,7 @@ will also update the quality rating if passed.
 This also triggers the calculation of on_time_delivery_rate, quality_rating_avg and fulfilment_rate performance metrics.
 
 
+### Historical Performance ###
 #### 11) Get vendor performance - GET http://127.0.0.1:8000/vendors/2/performance
 
 This GET request takes the access token and a vendor id as a path variable.
@@ -194,6 +197,7 @@ vendor's performance metrics.
 Also, the metrics fields in the Vendor table just stores the latest calculated metrics. So they will be updated multiple times a day.
 
 
+### Deleting ###
 #### 12) Delete a purchase order - DELETE http://127.0.0.1:8000/purchase_orders/10/
 
 This takes the access token and a purchase order id as a path variable and deletes the 
